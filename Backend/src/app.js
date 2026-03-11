@@ -5,18 +5,22 @@ const cors = require("cors");
 const app = express();
 
 const corsOptions = {
-    origin: [
-        "https://interview-ai-lakshaynewatias-projects.vercel.app",
-        "https://interview-ai-nine-eta.vercel.app"
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
+  origin: [
+    "https://interview-ai-git-main-lakshaynewatias-projects.vercel.app",
+    "https://interview-ai-nine-eta.vercel.app"
+  ],
+  credentials: true,
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
+  allowedHeaders: ["Content-Type","Authorization","X-Requested-With","Accept"]
 };
 
 // Apply CORS globally
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // preflight support
+
+// **Remove the problematic line**
+// app.options("*", cors(corsOptions)); // ❌ causes PathError
+// Use this instead if you want explicit OPTIONS handling:
+app.options("/api/*", cors(corsOptions)); // ✅ only for API routes
 
 app.use(express.json());
 app.use(cookieParser());
