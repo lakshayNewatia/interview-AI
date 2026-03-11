@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://interview-hxuv4txw4-lakshaynewatias-projects.vercel.app/",
+    origin: "https://interview-hxuv4txw4-lakshaynewatias-projects.vercel.app",
     credentials: true
 }))
 
