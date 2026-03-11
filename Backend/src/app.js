@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(cors(corsOptions));
 
 // 3. Explicitly handle Preflight requests (fixes the 204 error)
-app.options("(.*)", cors(corsOptions));
+app.options(cors(corsOptions));
 
 /* require all the routes here */
 const authRouter = require("./routes/auth.routes");
