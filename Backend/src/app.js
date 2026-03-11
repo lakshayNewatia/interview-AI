@@ -6,27 +6,26 @@ const app = express();
 
 const corsOptions = {
     origin: [
-        "https://interview-ai-git-main-lakshaynewatias-projects.vercel.app",
-        "https://interview-ai-nine-eta.vercel.app/" // Add your main domain too
+        "https://interview-ai-lakshaynewatias-projects.vercel.app",
+        "https://interview-ai-nine-eta.vercel.app"
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
 };
 
-// Apply CORS to ALL requests (including OPTIONS) as early as possible
-app.use(cors(corsOptions)); 
+// Apply CORS globally
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // preflight support
 
 app.use(express.json());
 app.use(cookieParser());
 
-/* require all the routes here */
+/* Routes */
 const authRouter = require("./routes/auth.routes");
 const interviewRouter = require("./routes/interview.routes");
 
-/* using all the routes here */
 app.use("/api/auth", authRouter);
 app.use("/api/interview", interviewRouter);
 
 module.exports = app;
-
