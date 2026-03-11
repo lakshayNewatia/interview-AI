@@ -10,17 +10,12 @@ const corsOptions = {
     "https://interview-ai-nine-eta.vercel.app"
   ],
   credentials: true,
-  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
-  allowedHeaders: ["Content-Type","Authorization","X-Requested-With","Accept"]
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
 };
 
 // Apply CORS globally
-app.use(cors(corsOptions));
-
-// **Remove the problematic line**
-// app.options("*", cors(corsOptions)); // ❌ causes PathError
-// Use this instead if you want explicit OPTIONS handling:
-app.options("/api/*", cors(corsOptions)); // ✅ only for API routes
+app.use(cors(corsOptions)); // ✅ handles preflight automatically
 
 app.use(express.json());
 app.use(cookieParser());
