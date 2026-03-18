@@ -1,5 +1,8 @@
 # 🚀 InterviewAI – AI Powered Interview Preparation Platform
 
+🔗 **Deployment Link**  
+- Live Application: [Click here](https://interview-ai-nine-eta.vercel.app/login)
+
 InterviewAI is a full-stack web application that helps job seekers prepare for interviews in a **personalized, efficient, and AI-driven way**. It analyzes a candidate’s resume and target job description to generate:
 
 - 🎯 Tailored interview questions  
